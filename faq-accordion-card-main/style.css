@@ -1,0 +1,202 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 10px;
+}
+
+html,
+body {
+  background: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+  width: 100%;
+  min-height: 100%;
+  padding: 0 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background: #ffffff;
+  width: 100%;
+  max-width: 100rem;
+  padding: 4.8rem 6.4rem 4.8rem 0;
+  border-radius: 2rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+  display: flex;
+}
+
+.left-side,
+.right-side {
+  position: relative;
+  flex: 1;
+}
+
+.left-side img {
+  position: absolute;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.images-container {
+  position: relative;
+  width: 100%;
+  height: calc(100% + 9.6rem);
+  transform: translateY(-4.8rem);
+  overflow: hidden;
+}
+
+.images-container img.woman-online {
+  top: 50%;
+  z-index: 1;
+  width: 45rem;
+  transform: translate(-8rem, -50%);
+}
+
+.images-container img.bg-pattern {
+  top: 50%;
+  width: 80rem;
+  transform: translate(-50rem, -55%);
+}
+
+.left-side img.box {
+  top: 40%;
+  left: -10rem;
+  z-index: 1;
+}
+
+.right-side h1 {
+  margin-bottom: 2.4rem;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: hsl(238, 29%, 16%);
+}
+
+.item {
+  padding: 1.6rem 0;
+  border-bottom: 1px solid hsl(240, 5%, 91%);
+}
+
+.item h2 {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: hsl(237, 12%, 33%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.item h2.active {
+  font-weight: 700;
+}
+
+.item h2:hover {
+  color: hsl(14, 88%, 65%);
+}
+
+.item h2::after {
+  content: url(./images/icon-arrow-down.svg);
+  transition: transform 0.3s;
+}
+
+.item p {
+  display: block;
+  max-height: 0;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: hsl(240, 6%, 50%);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.item h2.active::after {
+  transform: rotate(180deg);
+}
+
+.item h2.active + p {
+  animation: animate 0.5s forwards;
+}
+
+@keyframes animate {
+  from {
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    max-height: 30rem;
+  }
+}
+
+.attribution {
+  padding: 1.6rem 1%;
+  color: #ffffff;
+}
+
+.attribution a {
+  text-decoration: none;
+  font-weight: 700;
+  color: hsl(14, 88%, 65%);
+}
+
+@media (max-width: 850px) {
+  body {
+    padding: 5.4rem 1%;
+  }
+
+  .container {
+    flex-direction: column;
+    padding: 3.2rem;
+  }
+
+  .left-side {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 30rem;
+    margin: 0 auto 15rem;
+  }
+
+  .images-container {
+    position: absolute;
+    top: -8rem;
+    display: flex;
+    justify-content: center;
+    height: 30rem;
+    overflow: visible;
+  }
+
+  .images-container img.woman-online {
+    width: 100%;
+    max-width: 25rem;
+    transform: translate(-0rem, -50%);
+  }
+
+  .images-container img.bg-pattern {
+    width: 100%;
+    max-width: 25rem;
+    transform: translate(-0rem, -50%);
+  }
+
+  .left-side img.box {
+    width: 10rem;
+    left: 0;
+  }
+
+  .right-side h1 {
+    text-align: center;
+  }
+
+  .attribution {
+    text-align: center;
+  }
+}
